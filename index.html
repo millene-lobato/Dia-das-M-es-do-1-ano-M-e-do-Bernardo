@@ -1,178 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
 
-  <title>Cartinha 💖</title>
+  <title>Cartinha Pra Você 💖</title>
 
-  <style>
-
-    body {
-      background: linear-gradient(#ffd6e0, #ffc0cb);
-      text-align: center;
-      font-family: Arial;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* CONTAINER */
-    .container {
-      max-width: 600px;
-      margin: auto;
-      padding-top: 20px;
-    }
-
-    /* FOTO PRINCIPAL */
-    .foto {
-      width: 90%;
-      max-width: 400px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-
-    /* ENVELOPE */
-    .envelope {
-      position: relative;
-      width: 90%;
-      max-width: 400px;
-      min-height: 260px;
-
-      margin: 30px auto;
-      cursor: pointer;
-
-      overflow: visible;
-    }
-
-    /* CORPO */
-    .corpo {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-
-      background: #ffb6c1;
-      border-radius: 10px;
-
-      z-index: 2;
-    }
-
-    /* TAMPA */
-    .tampa {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-
-      background: #ff8fab;
-
-      clip-path: polygon(0 0, 50% 50%, 100% 0);
-
-      transform-origin: top;
-      transition: transform 0.6s ease;
-
-      z-index: 4;
-    }
-
-    /* CORAÇÃO */
-    .coracao {
-      position: absolute;
-      top: 60%;
-      left: 50%;
-
-      transform: translate(-50%, -50%);
-
-      font-size: 50px;
-
-      z-index: 5;
-
-      transition: transform 0.3s ease;
-    }
-
-    .envelope:hover .coracao {
-      transform: translate(-50%, -50%) scale(1.2);
-    }
-
-    /* CARTA */
-    .carta {
-      position: absolute;
-
-      width: 95%;
-      left: 2.5%;
-      bottom: 10px;
-
-      background: white;
-
-      padding: 15px;
-      border-radius: 15px;
-
-      z-index: 5;
-
-      opacity: 0;
-
-      text-align: center;
-
-      box-sizing: border-box;
-
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-
-      transform: translateY(100%);
-
-      transition:
-        transform 0.7s ease,
-        opacity 0.7s ease;
-    }
-
-    /* TEXTO */
-    .carta p {
-      margin: 5px 0 10px;
-      font-size: 18px;
-    }
-
-    /* FOTO DENTRO DA CARTA */
-    .fotoCarta {
-      width: 100%;
-      height: auto;
-
-      display: block;
-      margin: 0 auto;
-
-      border-radius: 10px;
-
-      max-height: 350px;
-
-      object-fit: cover;
-    }
-
-    /* ANIMAÇÃO */
-    .envelope.aberto .tampa {
-      transform: rotateX(180deg);
-    }
-
-    .envelope.aberto .carta {
-      transform: translateY(-100%);
-      opacity: 1;
-    }
-
-    /* BOTÃO */
-    #playMusic {
-      margin-top: 10px;
-
-      padding: 10px 18px;
-
-      border: none;
-      border-radius: 20px;
-
-      background: #ff4d6d;
-      color: white;
-
-      cursor: pointer;
-
-      font-size: 16px;
-
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -183,12 +17,12 @@
   </audio>
 
   <!-- BOTÃO -->
-  <button id="playMusic">▶ Tocar música</button>
+  <button id="playMusic">▶ Play Music</button>
 
   <div class="container">
 
-    <!-- FOTO PRINCIPAL -->
-    <img src="Mãe do Bernardo.jpeg" class="foto">
+    <!-- FOTO -->
+    <img src="foto1.jpeg" class="foto">
 
     <!-- ENVELOPE -->
     <div class="envelope" onclick="abrirCarta()">
@@ -197,19 +31,38 @@
 
       <div class="corpo"></div>
 
-      <!-- CORAÇÃO -->
       <div class="coracao">❤️</div>
 
       <!-- CARTA -->
-      <div class="carta" id="carta">
+      <div class="carta">
 
-        <p>Oi 💕 fiz isso pra você</p>
+        <p>Mãe, minha flor, minha rainha! 💖</p>
 
-        <!-- FOTO DENTRO DA CARTA -->
-        <img
-          src="WhatsApp Image 2026-05-09 at 00.20.39.jpeg"
-          class="fotoCarta"
-        >
+        <!-- CARROSSEL -->
+        <div class="carrossel">
+
+          <div class="slides" id="slides">
+
+            <img src="foto2.jpeg" class="slide">
+
+            <img src="foto3.jpeg" class="slide">
+
+            <img src="foto4.jpeg" class="slide">
+
+          </div>
+
+        </div>
+
+        <!-- BOLINHAS -->
+        <div class="indicador">
+
+          <div class="bolinha ativa"></div>
+
+          <div class="bolinha"></div>
+
+          <div class="bolinha"></div>
+
+        </div>
 
       </div>
 
@@ -217,25 +70,7 @@
 
   </div>
 
-  <script>
-
-    function abrirCarta() {
-      const envelope = document.querySelector(".envelope");
-
-      envelope.classList.toggle("aberto");
-    }
-
-    document
-      .getElementById("playMusic")
-      .addEventListener("click", function () {
-
-        document
-          .getElementById("musica")
-          .play();
-
-      });
-
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
